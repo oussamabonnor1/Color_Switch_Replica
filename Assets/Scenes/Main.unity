@@ -505,6 +505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpingForce: 10
   rb: {fileID: 196495857}
+  spriteRenderer: {fileID: 196495853}
+  destroyedPrefab: {fileID: 0}
 --- !u!50 &196495857
 Rigidbody2D:
   serializedVersion: 4
@@ -772,7 +774,7 @@ Transform:
   m_GameObject: {fileID: 1533498956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 2123660696}
   - {fileID: 941433790}
