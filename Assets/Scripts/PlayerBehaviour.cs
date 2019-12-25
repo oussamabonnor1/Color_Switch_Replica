@@ -40,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     string setStartColor()
     {
-        int index = Random.Range(0, 3);
+        int index = Random.Range(0, 4);
         switch (index)
         {
             case 0:
