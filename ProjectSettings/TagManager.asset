@@ -8,6 +8,7 @@ TagManager:
   - yellow
   - pink
   - purple
+  - PowerUp
   layers:
   - Default
   - TransparentFX

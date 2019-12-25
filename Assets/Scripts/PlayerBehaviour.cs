@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Start()
     {
-        currentColor = setStartColor();
+        int index = Random.Range(0, 4);
+        currentColor = setColor(index);
     }
 
     // Update is called once per frame
@@ -26,21 +29,29 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "PowerUp")
         {
-
+            setColor(other.GetComponent<PowerUpBehaviour>().colorIndex);
+            Destroy(other.gameObject);
         }
         else
         {
             if (other.gameObject.tag != currentColor)
             {
-                Instantiate(destroyedPrefab, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                //Instantiate(destroyedPrefab, transform.position, Quaternion.identity);
+                StartCoroutine(cameraJig());
+                spriteRenderer.enabled = false;
             }
         }
     }
 
-    string setStartColor()
+    IEnumerator cameraJig()
     {
-        int index = Random.Range(0, 4);
+        Camera.main.GetComponent<Animation>().Play();
+        yield return new WaitForSeconds(.8f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    string setColor(int index)
+    {
         switch (index)
         {
             case 0:
