@@ -8,7 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
     public GameObject destroyedPrefab;
-    string currentColor;
+    public string currentColor;
 
     void Start()
     {
@@ -29,14 +29,13 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "PowerUp")
         {
-            setColor(other.GetComponent<PowerUpBehaviour>().colorIndex);
+            currentColor = setColor(other.GetComponent<PowerUpBehaviour>().colorIndex);
             Destroy(other.gameObject);
         }
         else
         {
             if (other.gameObject.tag != currentColor)
             {
-                //Instantiate(destroyedPrefab, transform.position, Quaternion.identity);
                 StartCoroutine(cameraJig());
                 spriteRenderer.enabled = false;
             }
