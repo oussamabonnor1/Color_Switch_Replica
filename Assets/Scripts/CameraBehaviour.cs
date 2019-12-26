@@ -25,11 +25,11 @@ public class CameraBehaviour : MonoBehaviour
         {
             if (Random.Range(0, 5) == 0)
             {
-                //spawnPowerUp();
+                spawnPowerUp();
             }
             else
             {
-                //spawnCircle(Random.Range(minRotationSpeed, maxRotationSpeed) * 10);
+                spawnCircle(Random.Range(minRotationSpeed, maxRotationSpeed) * 10);
             }
         }
     }
